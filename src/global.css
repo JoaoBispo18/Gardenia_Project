@@ -1,0 +1,726 @@
+  /* Imports */
+  @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Island+Moments&display=swap');
+
+:root {
+    --verde0: #38732F;
+    --verde1: #57A440;
+    --verde2: #65A65B;
+    --verde3: #ABEA9B;
+    --verde4: #E7FACF;
+    --verde5: #FAFFF3;
+    --branco: #FFFFFF;
+    --cinza:  #EBEBEC;
+    --preto:  #272727;
+}
+  
+    /* Configuração padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+
+body {
+  background-color: var(--cinza);
+  font-family: "Darker Grotesque", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+link{
+  text-decoration: none !important
+}
+
+li{
+  list-style: none;
+}
+  
+    /* começo da navbar */
+nav {
+  background-color: var(--verde1);
+  padding: 0 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+  
+.conteudoNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  width: 100%;
+}
+  
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+  
+.logo {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+  
+.NomeLogo {
+  font-family: "Island Moments", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 500;
+}
+  
+.links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+  
+.nav_item {
+  list-style: none;
+}
+  
+.nav-link {
+  position: relative;
+  font-size: 1.5rem;
+  color: var(--branco);
+  text-decoration: none;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+  
+.nav-link:hover {
+  color: var(--preto);
+}
+  
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--verde0);
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+  
+.nav-link:hover::after {
+  width: 100%;
+}
+  
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pesquisar_container {
+  display: flex;
+  align-items: center;
+  background-color: var(--cinza);
+  border-radius: 30px;
+  padding: 5px 10px;
+  box-shadow: 0 0 8px var(--verde3);
+}
+
+.pesquisar_input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--preto);
+  padding: 6px 8px;
+  font-size: 1rem;
+  width: 160px;
+}
+
+.icone_botao {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--preto);
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.icone_botao:hover {
+  transform: scale(1.2);
+}
+
+.NavbarButton {
+  background-color: var(--verde0);
+  border: none;
+  border-radius: 20px;
+  color: var(--branco);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1rem;
+}
+
+.NavbarButton:hover {
+  transform: scale(1.1);
+  color: var(--preto);
+  background-color: var(--verde3);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--branco);
+  cursor: pointer;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+    background-color: var(--verde1);
+  }
+
+  .links.ativo {
+    display: flex;
+  }
+
+  .acoes.desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .conteudoNavbar {
+    flex-wrap: wrap;
+    height: auto;
+  }
+}
+
+
+  /* Fim da Navbar -- começo do conteudo*/
+
+.carrossel-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  position: relative;
+}
+  
+.swiper-slide {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+  
+.img-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+  
+.img-carrossel {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+  
+.swiper-slide:hover .img-carrossel {
+  transform: scale(1.03);
+}
+  
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+  
+.carrossel-container:hover .swiper-button-next,
+.carrossel-container:hover .swiper-button-prev {
+  opacity: 1;
+  pointer-events: all;
+}
+  
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--verde3) !important;
+  background: none !important;
+  border: none !important;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+  
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: var(--verde0) !important;
+  transform: scale(1.15);
+}
+  
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+  
+.swiper-pagination-bullet {
+  background: var(--verde3) !important;
+  opacity: 0.6;
+  border: none;
+  transition: transform 0.2s ease;
+}
+  
+.swiper-pagination-bullet:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+  
+.swiper-pagination-bullet-active {
+  background: var(--verde0) !important;
+  opacity: 1;
+}
+ /* Fim do carrossel -- começo do footer*/
+
+ .footer {
+  background-color: var(--verde1);
+  padding: 2rem 2rem;
+}
+
+.footer-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.footer-logo {
+  width: 6rem;
+  height: auto;
+}
+
+.footer-textos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-nome {
+  font-size: 2.2rem;
+  color: white;
+  margin: 0;
+}
+
+.footer-telefone {
+  font-size: 1.2rem;
+  color: white;
+  margin-top: 0.2rem;
+}
+  
+    /* Fim do footer -- começo dos cards*/
+
+.cardsT{
+  justify-content:center;
+  align-items: center;
+}
+
+.titulo-plantas {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  color: var(--verde0); /* ou outra cor do seu tema */
+}
+    
+
+.galeria-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+}
+    
+.card {
+  background-color: var(--branco);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 400px;
+  transition: transform 0.3s ease;
+}
+    
+.card:hover {
+  transform: scale(1.03);
+}
+    
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+    
+.card-conteudo {
+  padding: 2rem;
+}
+    
+.card-titulo {
+  font-size: 1.5rem;
+  color: var(--verde1);
+  margin-bottom: 0.5rem;
+}
+    
+.card-descricao {
+  font-size: 1.1rem;
+  color: var(--preto);
+  font-weight: 400;
+}
+    
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+    /* Fim dos cards -- começo do cadastro*/
+
+.cadastro-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--branco);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.cadastro-titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--verde0);
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cadastro-label {
+  font-size: 1.1rem;
+  color: var(--verde0);
+  font-weight: 600;
+}
+
+.cadastro-input {
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--verde2);
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: var(--verde5);
+  color: var(--preto);
+}
+
+.cadastro-input:focus {
+  outline: none;
+  border-color: var(--verde1);
+  background-color: #f9fff5;
+}
+
+.cadastro-botao {
+  padding: 0.8rem;
+  background-color: var(--verde0);
+  color: var(--branco);
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cadastro-botao:hover {
+  background-color: var(--verde1);
+}
+
+.cadastro-link-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--preto);
+}
+
+.cadastro-link {
+  color: var(--verde1);
+  text-decoration: underline;
+}
+
+/* fim  do cadastro e começo do login */
+
+.login-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 4rem;
+  margin-top: 10rem;
+  background-color: var(--branco);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.login-titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--verde0);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login-label {
+  font-size: 1.1rem;
+  color: var(--verde0);
+  font-weight: 600;
+}
+
+.login-input {
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--verde2);
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: var(--verde5);
+  color: var(--preto);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--verde1);
+  background-color: #f9fff5;
+}
+
+.login-botao {
+  padding: 0.8rem;
+  background-color: var(--verde0);
+  color: var(--branco);
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-botao:hover {
+  background-color: var(--verde1);
+}
+
+.login-link-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--preto);
+}
+
+.login-link {
+  color: var(--verde1);
+  text-decoration: underline;
+}
+
+/* botão de voltar das paginas de cadastro e login*/
+.botao-voltar {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--cinza);
+  color: var(--preto);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.botao-voltar:hover {
+  background-color: var(--verde1);
+  color: var(--cinza);
+}
+
+/*fim do login comeco das ferramentas*/
+
+.card-img-quadrada {
+  width: 60%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  margin-left: 25%;
+  border-radius: 12px 12px 0 0;
+}
+
+/* fim das ferramentas começo das Plantas/Flores */
+
+/*subpaginas*/
+.pagina-planta {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 108px;
+  background-color: var(--cinza); /* Cor de fundo mais suave */
+  list-style: none;
+}
+
+.titulo-planta {
+  font-size: 2.5rem; /* Aumentando o tamanho do título */
+  text-align: left;
+  color: var(--verde0); /* Cor ajustada para o verde */
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.conteudo-planta {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: space-between; /* Garantindo que a imagem e o conteúdo fiquem bem distribuídos */
+  font-size: 1.2rem;
+  list-style: none;
+}
+
+.imagem-planta {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 12px; /* Bordas arredondadas para uma estética mais suave */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave para dar profundidade */
+  list-style: none;
+}
+
+.info-planta {
+  background-color: var(--branco); /* Fundo mais limpo */
+  padding: 20px;
+  border-radius: 12px; /* Bordas arredondadas para suavizar o visual */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve para dar destaque */
+  width: 100%;
+  list-style: none;
+}
+
+/*subpaginas fimmmmmm*/
+
+/* filtro */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.botao-filtro {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botao-filtro:hover {
+  background-color: #ddd;
+}
+
+.botao-filtro.ativo {
+  background-color: var(--verde1);
+  color: white;
+  border-color: var(--verde1);
+}
+
+/* Fim do filtro e começo do perfil quando logado*/
+.perfil-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10rem;
+  margin-top: 10rem;
+}
+
+.perfil-titulo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.perfil-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #444;
+}
+
+.perfil-form input,
+.perfil-form select {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 0.4rem;
+}
+
+.perfil-form button {
+  padding: 0.8rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.perfil-form button:hover {
+  background-color: #45a049;
+}
+
+.botao-sair {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botao-sair:hover {
+  background-color: #c9302c;
+}
+
