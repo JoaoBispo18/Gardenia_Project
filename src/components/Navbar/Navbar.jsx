@@ -75,13 +75,6 @@ const Navbar = () => {
         </ul>
 
         <div className="acoes desktop-only">
-          <form className="pesquisar_container">
-            <input type="text" className="pesquisar_input" placeholder="Buscar plantas..." />
-            <button className="icone_botao" type="submit">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </form>
-
           <button className="NavbarButton" onClick={handlePerfilClick}>
             <FontAwesomeIcon icon={faUser} />
           </button>

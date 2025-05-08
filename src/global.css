@@ -118,25 +118,6 @@ nav {
   gap: 1rem;
 }
 
-.pesquisar_container {
-  display: flex;
-  align-items: center;
-  background-color: var(--cinza);
-  border-radius: 30px;
-  padding: 5px 10px;
-  box-shadow: 0 0 8px var(--verde3);
-}
-
-.pesquisar_input {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--preto);
-  padding: 6px 8px;
-  font-size: 1rem;
-  width: 160px;
-}
-
 .icone_botao {
   background: none;
   border: none;
@@ -172,7 +153,7 @@ nav {
   background: none;
   border: none;
   font-size: 1.8rem;
-  color: var(--branco);
+  color: var(--verde1);
   cursor: pointer;
 }
 
